@@ -41,7 +41,5 @@ Un système de recommandation des films basé sur le contenu et la collaboration
 
 6. À cette étape, le programme affiche un diagramme à barres illustrant le nombre de films par genre :
 
-    ```markdown
-    ![Nombre de films par genre](./photos/pic1.png)
-    ```
+    ![Nombre de films par genre](/photos/pic1.png)
 
