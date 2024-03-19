@@ -47,4 +47,4 @@ cluster_labels = pd.DataFrame({'userId': remaining_70['userId'], 'cluster': labe
 user_profiles = pd.merge(user_profiles, cluster_labels, on='userId', how='left')
 
 # Write the result to a CSV file
-user_profiles.to_csv('clustering_user_profiles.csv', index=False)
+user_profiles.to_csv('./data/clustering_user_profiles.csv', index=False)

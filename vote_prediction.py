@@ -1,26 +1,21 @@
-# Ali shoja Sultani sula3002 
 import pandas as pd
 from sklearn.model_selection import train_test_split
-import pandas as pd
-from sklearn.cluster import SpectralClustering
-from sklearn.metrics import silhouette_score
-from sklearn.neighbors import NearestNeighbors
-import matplotlib.pyplot as plt
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import f1_score
+from sklearn.neighbors import NearestNeighbors
 
 def divide_files():
     # Chargement du fichier ratings1.csv
-    ratings = pd.read_csv('ratings1.csv')
+    ratings = pd.read_csv('./data/ratings1.csv')
 
     # Séparation des données en train, évaluation et test avec stratification basée sur les notes
     train_data, temp_data = train_test_split(ratings, test_size=0.4, random_state=42, stratify=ratings['rating'])
     eval_data, test_data = train_test_split(temp_data, test_size=0.5, random_state=42, stratify=temp_data['rating'])
 
     # Enregistrement des fichiers
-    train_data.to_csv('ratings_train.csv', index=False)
-    eval_data.to_csv('ratings_evaluation.csv', index=False)
-    test_data.to_csv('ratings_test.csv', index=False)
+    train_data.to_csv('./data/ratings_train.csv', index=False)
+    eval_data.to_csv('./data/ratings_evaluation.csv', index=False)
+    test_data.to_csv('./data/ratings_test.csv', index=False)
 
 # Function to find the 5 nearest neighbors for each user based on their profiles
 def find_nearest_neighbors(user_profiles):
@@ -32,13 +27,13 @@ def main():
     #divide_files()
 
     # Chargement du fichier ratings_train.csv
-    ratings_train = pd.read_csv('ratings_train.csv')
+    ratings_train = pd.read_csv('./data/ratings_train.csv')
 
-    ratings_evaluation = pd.read_csv('ratings_evaluation.csv')
-    ratings_test = pd.read_csv('ratings_test.csv')
+    ratings_evaluation = pd.read_csv('./data/ratings_evaluation.csv')
+    ratings_test = pd.read_csv('./data/ratings_test.csv')
 
     # Chargement du fichier user_profiles.csv
-    user_profiles = pd.read_csv('user_profiles.csv')
+    user_profiles = pd.read_csv('./data/user_profiles.csv')
 
     distances, indices = find_nearest_neighbors(user_profiles)
 
